@@ -148,84 +148,7 @@ The main email assistant agent (`email_assistant_hitl_memory_gmail.py`) demonstr
 3. **Calendar Intelligence Agent**: Temporal reasoning and constraint satisfaction
 4. **Human Collaboration Agent**: Strategic escalation with timeout management
 5. **Memory Management Agent**: Continuous preference learning and adaptation
-
-## 🎨 AI Engineering Techniques Demonstrated
-
-### **Advanced Prompt Engineering**
-- **Dynamic System Prompts**: Context-aware prompt construction based on user preferences
-- **Few-Shot Learning**: Examples-driven behavior adaptation
-- **Chain-of-Thought Reasoning**: Step-by-step decision documentation
-- **Structured Output Parsing**: Type-safe AI responses with Pydantic schemas
-
-### **Agent Design Patterns**
-- **State-Driven Agents**: LangGraph state management for complex workflows
-- **Tool-Augmented Agents**: External API integration with intelligent tool selection
-- **Memory-Enhanced Agents**: Persistent context and preference learning
-- **Collaborative Agents**: Human-AI partnership with strategic interrupts
-
-### **Production AI Systems**
-- **Robust Error Handling**: Graceful degradation and recovery mechanisms
-- **Safety Constraints**: Iteration limits, timeouts, and infinite loop protection
-- **Observability**: Comprehensive logging and agent behavior monitoring
-- **Scalable Architecture**: Modular design for easy extension and maintenance
-
-##  Agent Tool Ecosystem
-
-### **Intelligent Email Agents**
-- `send_email_tool`: AI-driven email composition and sending
-- `fetch_emails_tool`: Smart email retrieval with contextual filtering
-
-### **Calendar Intelligence Agents**
-- `schedule_meeting_tool`: Autonomous meeting scheduling with conflict resolution
-- `check_calendar_tool`: Availability analysis and optimization
-
-### **Meta-Agent Tools**
-- `Question`: Dynamic user clarification with context-aware questioning
-- `Done`: Intelligent workflow completion detection
-
-## 🎛️ Agent Configuration & Learning
-
-### **Adaptive User Preference System**
-The AI agents continuously learn and adapt through:
-
-- **Triage Learning**: Pattern recognition in email classification decisions
-- **Response Style Adaptation**: Writing tone and format preference learning
-- **Calendar Behavior**: Meeting scheduling pattern optimization
-
-### **Production-Grade Safety Systems**
-- **Maximum LLM Iterations**: 10 (prevents agent loops)
-- **Workflow Timeout**: 300 seconds (ensures responsive behavior)
-- **Interrupt Timeout**: 1800 seconds (30 minutes for human decisions)
-
-## 💡 Skills Demonstrated
-
-This project showcases advanced AI engineering competencies:
-
-### **Agentic AI Systems**
-- Multi-agent workflow orchestration
-- Autonomous decision-making with human oversight
-- Tool-calling and API integration
-- State management and persistence
-
-### **Prompt Engineering Mastery**
-- Dynamic prompt construction
-- Context-aware system message generation
-- Structured output parsing
-- Chain-of-thought implementation
-
-### **Production AI Development**
-- Error handling and graceful degradation
-- Safety constraints and timeout management
-- Comprehensive logging and monitoring
-- Scalable, maintainable architecture
-
-### **Integration & APIs**
-- OAuth2 authentication flows
-- Gmail and Calendar API integration
-- LangGraph deployment and management
-- Environment configuration and security
-
-## 🔧 Technical Implementation
+## Technical Implementation
 
 ```
 email-assistant/                   # Autonomous Email Agent System
@@ -277,23 +200,4 @@ email-assistant/                   # Autonomous Email Agent System
    - Use `--include-read` to test with read emails
    - Use `--early` flag for single email testing
 
-### Debug Mode
 
-Enable detailed logging by setting:
-```python
-logging.basicConfig(level=logging.DEBUG)
-```
-
-### Memory Issues
-
-If the system isn't learning preferences correctly:
-- Check LangGraph store connectivity
-- Verify memory namespace consistency
-- Clear stored preferences if needed
-
-## Security Considerations
-
-- OAuth tokens are stored locally in `.secrets/` directory
-- Ensure `.secrets/` is in your `.gitignore`
-- Use environment variables for production deployments
-- Regularly rotate API keys and tokens
