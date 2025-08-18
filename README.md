@@ -74,6 +74,10 @@ Edit `.env` with your configuration:
 GOOGLE_API_KEY=your_gemini_api_key
 GMAIL_TOKEN=your_gmail_oauth_token_json
 GMAIL_SECRET=your_gmail_client_secret_json
+LANGSMITH_API_KEY=your langsmith api key
+LANGSMITH_TRACING=true
+LANGSMITH_PROJECT=your project name
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 ```
 
 ## Setup
