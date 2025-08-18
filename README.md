@@ -4,41 +4,6 @@ An intelligent email assistant that automatically triages incoming Gmail message
 
 ## Agent Orchestration Architecture
 
-```mermaid
-graph TD
-    A[Email Input] --> B[Triage Agent]
-    B --> C{Classification Decision}
-    
-    C -->|respond| D[Response Agent]
-    C -->|notify| E[Triage Interrupt Handler]
-    C -->|ignore| F[Mark as Read]
-    
-    E --> G{Human Decision}
-    G -->|respond| D
-    G -->|ignore| F
-    
-    D --> H[LLM Call Agent]
-    H --> I{Tool Calls Required?}
-    
-    I -->|yes| J[Interrupt Handler]
-    I -->|no| F
-    
-    J --> K{Human Approval}
-    K -->|accept| L[Execute Tool]
-    K -->|edit| H
-    K -->|ignore| F
-    
-    L --> M{Task Complete?}
-    M -->|no| H
-    M -->|yes| F
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style D fill:#e8f5e8
-    style H fill:#fff3e0
-    style F fill:#ffebee
-```
-
 ## Technology Stack
 
 ### Core AI Framework
@@ -102,14 +67,6 @@ Strategic human oversight for high-stakes decisions with configurable timeout ha
 
 ### Adaptive Memory Agent
 Continuous learning system that evolves user preferences through interaction patterns, storing triage rules, response styles, and calendar preferences.
-
-## Prerequisites
-
-- Python 3.13+
-- Gmail account with API access
-- Google Cloud Project with Gmail and Calendar APIs enabled
-- LangGraph deployment running locally or remotely
-- LangSmith account for agent monitoring
 
 ### **Key AI Engineering Patterns:**
 
