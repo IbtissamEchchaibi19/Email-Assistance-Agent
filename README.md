@@ -105,7 +105,7 @@ python tools/gmail/setup_gmail.py
 
 Deploy the LangGraph agent orchestration server:
 ```bash
-langgraph up
+langgraph dev
 ```
 
 The agent management server will be accessible at `http://127.0.0.1:2024` for real-time agent coordination and monitoring.
