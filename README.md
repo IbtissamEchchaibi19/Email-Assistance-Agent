@@ -2,37 +2,114 @@
 
 An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model.
 
+## Agent Orchestration Architecture
+
+```mermaid
+graph TD
+    A[Email Input] --> B[Triage Agent]
+    B --> C{Classification Decision}
+    
+    C -->|respond| D[Response Agent]
+    C -->|notify| E[Triage Interrupt Handler]
+    C -->|ignore| F[Mark as Read]
+    
+    E --> G{Human Decision}
+    G -->|respond| D
+    G -->|ignore| F
+    
+    D --> H[LLM Call Agent]
+    H --> I{Tool Calls Required?}
+    
+    I -->|yes| J[Interrupt Handler]
+    I -->|no| F
+    
+    J --> K{Human Approval}
+    K -->|accept| L[Execute Tool]
+    K -->|edit| H
+    K -->|ignore| F
+    
+    L --> M{Task Complete?}
+    M -->|no| H
+    M -->|yes| F
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style D fill:#e8f5e8
+    style H fill:#fff3e0
+    style F fill:#ffebee
+```
+
+## Technology Stack
+
+### Core AI Framework
+- **LangGraph**: Advanced agent workflow orchestration with state management and conditional routing
+- **LangChain**: Tool integration and chat model abstraction layer
+- **Google Gemini 2.5 Flash**: High-performance language model for reasoning and tool calling
+
+### Agent Infrastructure
+- **LangSmith**: Agent performance monitoring, trace analysis, and evaluation framework
+- **State Graph Pattern**: Deterministic agent behavior with conditional branching logic
+- **Memory Persistence**: Long-term user preference learning and context retention
+
+### Integration APIs
+- **Gmail API**: Email reading, sending, and management operations
+- **Google Calendar API**: Meeting scheduling and availability checking
+- **OAuth 2.0**: Secure authentication and authorization
+
+## LangSmith Integration & Agent Monitoring
+
+The system uses LangSmith for comprehensive agent observability:
+
+### Trace Collection
+```python
+# Environment configuration for agent tracking
+LANGSMITH_API_KEY=your_langsmith_api_key
+LANGSMITH_TRACING=true
+LANGSMITH_PROJECT=email_assistant_production
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
+```
+
+### Agent Performance Metrics
+- **Triage Accuracy**: Classification precision across respond/notify/ignore decisions
+- **Response Quality**: Human feedback on generated email drafts
+- **Tool Execution Success**: API call reliability and error rates
+- **Workflow Completion Time**: End-to-end agent processing duration
+- **Human Intervention Rate**: Frequency of required manual oversight
+
+### Evaluation Framework
+LangSmith enables automated evaluation of agent decisions through:
+- Triage classification accuracy assessment
+- Response appropriateness scoring
+- Tool selection optimization analysis
+- Memory update effectiveness tracking
+
 ## Advanced Agent Capabilities
 
-- **Intelligent Email Triage Agent**: Autonomous classification system that analyzes email context, sender relationships, and content urgency to make routing decisions:
-  - `respond` - Agent determines response is required and initiates draft generation
-  - `notify` - Agent flags for human attention with contextual reasoning
-  - `ignore` - Agent autonomously handles low-priority communications
-- **AI Response Generation Agent**: Context-aware email drafting with personalized writing style adaptation
-- **Calendar Intelligence Agent**: Autonomous meeting scheduling with conflict detection and availability optimization
-- **Human-in-the-Loop Agent Supervision**: Strategic human oversight for high-stakes decisions with timeout handling
-- **Adaptive Memory Agent**: Continuous learning system that evolves user preferences through interaction patterns
-- **Multi-Modal Tool Integration**: Seamless orchestration between Gmail, Calendar, and decision-making APIs
+### Intelligent Email Triage Agent
+Autonomous classification system that analyzes email context, sender relationships, and content urgency to make routing decisions with three primary classifications:
+- **respond**: Agent determines response is required and initiates draft generation
+- **notify**: Agent flags for human attention with contextual reasoning
+- **ignore**: Agent autonomously handles low-priority communications
 
-## Agentic Architecture & AI Engineering
+### AI Response Generation Agent
+Context-aware email drafting with personalized writing style adaptation that learns from user feedback and maintains consistent voice across interactions.
 
-This system demonstrates **sophisticated agent design patterns** using a multi-layered AI architecture:
+### Calendar Intelligence Agent
+Autonomous meeting scheduling with conflict detection and availability optimization, integrating with Google Calendar to propose optimal meeting times.
 
-### **Agent State Management**
-```
-Email Input → Triage Agent → Classification Decision
-                ↓
-         ┌─────────────┬─────────────┬─────────────┐
-         │   RESPOND   │   NOTIFY    │   IGNORE    │
-         ↓             ↓             ↓
-    Response Agent → Interrupt → Mark as Read
-         ↓          Handler      
-    LLM Call ←─────────┘
-         ↓
-    Tool Execution Agent
-         ↓
-    Mark as Read
-```
+### Human-in-the-Loop Agent Supervision
+Strategic human oversight for high-stakes decisions with configurable timeout handling, ensuring critical communications receive appropriate attention.
+
+### Adaptive Memory Agent
+Continuous learning system that evolves user preferences through interaction patterns, storing triage rules, response styles, and calendar preferences.
+
+## Prerequisites
+
+- Python 3.13+
+- Gmail account with API access
+- Google Cloud Project with Gmail and Calendar APIs enabled
+- LangGraph deployment running locally or remotely
+- LangSmith account for agent monitoring
 
 ### **Key AI Engineering Patterns:**
 
