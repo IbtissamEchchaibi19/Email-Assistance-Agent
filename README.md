@@ -83,7 +83,7 @@ Continuous learning system that evolves user preferences through interaction pat
 - **Tool-Calling Architecture**: Structured output parsing with dynamic tool selection
 - **Persistent Memory**: Context-aware preference learning across sessions
 - **Interrupt-Driven Workflows**: Real-time human collaboration in agent decision loops
-- ** Production Safety**: Timeout protection, iteration limits, and graceful error recovery
+- **Production Safety**: Timeout protection, iteration limits, and graceful error recovery
 - **Agent Observability**: Comprehensive logging and state tracking for agent behavior analysis
 
 ## Prerequisites
