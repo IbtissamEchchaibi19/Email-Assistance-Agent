@@ -1,12 +1,13 @@
 # AI-Powered Gmail Email Assistant
 
-An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model.
+An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model as the main LLM.
 
 ## Agent Orchestration Architecture
 <!-- Workflow Diagram -->
 <p align="center">
   <img src="img/diagramme.png" alt="AI Email Workflow" width="800"/>
 </p>
+
 ## Technology Stack
 
 ### Core AI Framework
@@ -58,9 +59,11 @@ Autonomous classification system that analyzes email context, sender relationshi
 - **respond**: Agent determines response is required and initiates draft generation
 - **notify**: Agent flags for human attention with contextual reasoning
 - **ignore**: Agent autonomously handles low-priority communications
+  
 <p align="center">
   <img src="img/emailworkflow.png" alt="AI Email Workflow" width="800"/>
 </p>
+
 ### AI Response Generation Agent
 Context-aware email drafting with personalized writing style adaptation that learns from user feedback and maintains consistent voice across interactions.
 
@@ -189,9 +192,6 @@ python tools/gmail/run_ingest.py --email john@company.com --include-read
   <img src="img/Screenshot 2025-08-18 194244.png" alt="AI Email Workflow" width="800"/>
 </p>
 
-## Agent Orchestration Architecture
-
-
 The main email assistant agent (`email_assistant_hitl_memory_gmail.py`) demonstrates advanced agentic AI patterns:
 
 1. **Autonomous Triage Agent**: Multi-criteria decision making with context understanding
@@ -199,6 +199,7 @@ The main email assistant agent (`email_assistant_hitl_memory_gmail.py`) demonstr
 3. **Calendar Intelligence Agent**: Temporal reasoning and constraint satisfaction
 4. **Human Collaboration Agent**: Strategic escalation with timeout management
 5. **Memory Management Agent**: Continuous preference learning and adaptation
+   
 ## Technical Implementation
 
 ```
