@@ -1,6 +1,7 @@
 # AI-Powered Gmail Email Assistant
 
 An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model as the main LLM.
+[ you can watch a demo here a <hrf a="https://vimeo.com/1111290857?share=copy">](https://vimeo.com/1111290857?share=copy)
 
 ## Agent Orchestration Architecture
 <!-- Workflow Diagram -->
