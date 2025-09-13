@@ -8,6 +8,23 @@
 An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model as the main LLM.
 [ you can watch a demo here <hrf a="https://vimeo.com/1111290857?share=copy">](https://vimeo.com/1111290857?share=copy)
 
+```mermaid
+graph TD
+    A[Incoming Email] --> B[Triage Agent]
+    B --> C{Classification}
+    C -->|Respond| D[Response Generation Agent]
+    C -->|Notify| E[Human Notification Agent]
+    C -->|Ignore| F[Archive Agent]
+    D --> G[Calendar Intelligence Agent]
+    G --> H[Human Review Agent]
+    H --> I[Memory Update Agent]
+    E --> H
+    
+    J[LangSmith Monitoring] --> B
+    J --> D
+    J --> G
+    J --> H
+```
 ## Agent Orchestration Architecture
 <!-- Workflow Diagram -->
 <p align="center">
