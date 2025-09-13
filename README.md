@@ -1,4 +1,9 @@
 # AI-Powered Gmail Email Assistant
+[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://python.org)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Workflow%20Engine-green.svg)](https://langchain-ai.github.io/langgraph/)
+[![LangChain](https://img.shields.io/badge/LangChain-AI%20Framework-orange.svg)](https://langchain.com)
+[![Google Gemini](https://img.shields.io/badge/Google-Gemini%202.5%20Flash-blue.svg)](https://ai.google.dev/)
+[![Gmail API](https://img.shields.io/badge/Gmail-API%20Integration-red.svg)](https://developers.google.com/gmail/api)
 
 An intelligent email assistant that automatically triages incoming Gmail messages and can draft responses, schedule meetings, and manage your inbox using AI. Built with LangGraph for workflow orchestration and Google's Gemini AI model as the main LLM.
 [ you can watch a demo here <hrf a="https://vimeo.com/1111290857?share=copy">](https://vimeo.com/1111290857?share=copy)
